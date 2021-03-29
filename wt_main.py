@@ -9,7 +9,7 @@ def prep_df():
     df = wt_func.get_file('./data/wt_data.csv')
     df = wt_func.set_index_col(df, 'year')
     # get the name of the city
-    city_name = df.iloc[0][0]
+    city_name = df.iloc[0][1]
     # modified column 'temp_city' to add the city
     col_name_updated = f'temp_city {city_name }'
     # modified the column in the DF
@@ -17,13 +17,57 @@ def prep_df():
     # remove column year, city not needed anymore
     wt_func.trim_df(df, 'year', 'city')
 
+    return (df, col_name_updated)
+
+
+def group_moving_average(df, col_name_updated, col_world_name):
+
+    # Create list index, data, and column to be inserted at the end in new dataFrame
+    # each list be happened with value
+    index_list = list()
+    data_list = list()
+    columns_list = ['year_range', col_name_updated, col_world_name]
+
+    # get min data and max data to control loop
+    year_min, year_max = (df.index.min(), df.index.max())
+
+    # create list of decade date
+    decade_list = list(range(year_min, year_max, 10))
+
+    # for each date:
+    # - group row corresponding + 9 below to get mean()
+    # - extract: the mean for the city and wold
+    # - create data range for better understanding
+
+    [wt_func.insert_data(
+        wt_func.get_row_val(
+            df, i, year_max, col_name_updated, col_world_name),
+        index_list,
+        data_list)
+     for i in decade_list]
+
+    # create new dataFrame
+
+    return pd.DataFrame(
+        data=data_list, columns=columns_list, index=index_list)
+
+
+def insert_delta_col(df, col_city_name_updated, col_world_name):
+    df['delta'] = df[col_city_name_updated]-df[col_world_name]
     return df
 
 
 def main():
     print('main file')
-    df = prep_df()
 
+    prep_df()
+
+    df,  col_city_name_updated = prep_df()
+    col_world_name = 'temp_world'
+
+    df = group_moving_average(df, col_city_name_updated, col_world_name)
+
+    df = insert_delta_col(df, col_city_name_updated, col_world_name)
     print(df)
 
 

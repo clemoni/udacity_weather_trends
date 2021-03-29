@@ -58,17 +58,17 @@ def rename_col(df, origin_col_name, new_col_name):
     return df.rename({origin_col_name: new_col_name}, axis='columns')
 
 
-def get_temperature(i, col):
+def get_temperature(df, i, col):
     return round(df.loc[i:i+9, col].mean(axis=0), 2)
 
 
-def get_row_val(i, year_max):
+def get_row_val(df, i, year_max, col_city, col_world):
     i_plus = year_max if year_max < i+9 else i+9
     year_range = f'{i}-{i_plus}'
-    return [i, year_range, get_temperature(i, 'dublin'), get_temperature(i, 'world')]
+    return [i, year_range, get_temperature(df, i, col_city), get_temperature(df, i, col_world)]
 
 
-def insert_data(data):
+def insert_data(data, index_list, data_list):
     index_list.append(data[0])
     data_list.append(data[1:5])
 
