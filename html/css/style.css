@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
 * {
     margin: 0;
@@ -8,6 +8,33 @@
 
   body {
     font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     /* font-family: "Poiret One", cursive; */
-   
+  }
+
+  table{
+      width:70%;
+      margin: 5rem auto;
+      text-align:center;
+      border-collapse: collapse;
+    
+  }
+  table thead{
+      background-color: rgba(7, 108, 167, 0.698);
+  }
+  table tbody tr:nth-child(even){
+    background-color: rgba(163, 209, 236, 0.698);
+  }
+  table tr{
+      text-align: center !important;
+  }
+  table th{
+      font-weight: 500;
+  }
+  table th{
+      padding:0.4rem;
+  }
+  .negValue{
+      color: red;
+      font-weight: 500;
   }
