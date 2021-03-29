@@ -6,7 +6,8 @@ import wt_functions as wt_func
 def prep_df():
 
     # get DF from csv file
-    df = wt_func.prep_index('./data/wt_data.csv', 'year')
+    df = wt_func.get_file('./data/wt_data.csv')
+    df = wt_func.set_index_col(df, 'year')
     # get the name of the city
     city_name = df.iloc[0][0]
     # modified column 'temp_city' to add the city

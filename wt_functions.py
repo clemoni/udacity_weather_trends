@@ -44,13 +44,6 @@ def trim_df(df, *cols):
         return '{del_col} column(s) deleted'.format(del_col=len_col_origin - len_col_trimed)
 
 
-def prep_index(path_name, col):
-
-    df = get_file(path_name)
-    df = set_index_col(df, col)
-    return df
-
-
 def rename_col(df, origin_col_name, new_col_name):
     """Rename a column name
 
