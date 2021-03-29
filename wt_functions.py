@@ -73,6 +73,15 @@ def insert_data(data, index_list, data_list):
     data_list.append(data[1:5])
 
 
+def convert_to_html(df, path_to_file):
+    # render dataframe as html
+    html = df.to_html()
+    # write html to file
+    text_file = open(path_to_file, 'w')
+    text_file.write(html)
+    text_file.close()
+
+
 def main():
     print('active functions module')
 

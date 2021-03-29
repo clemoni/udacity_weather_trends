@@ -68,6 +68,8 @@ def main():
     df = group_moving_average(df, col_city_name_updated, col_world_name)
 
     df = insert_delta_col(df, col_city_name_updated, col_world_name)
+
+    wt_func.convert_to_html(df, 'html/index.html')
     print(df)
 
 
