@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 import wt_functions as wt_func
 
 
@@ -53,8 +54,19 @@ def group_moving_average(df, col_name_updated, col_world_name):
 
 
 def insert_delta_col(df, col_city_name_updated, col_world_name):
+    # create and insert col delta with difference between temperature
+    # city and temperature world
     df['delta'] = df[col_city_name_updated]-df[col_world_name]
     return df
+
+
+def df_to_plot(df, col_city_name_updated, col_world_name):
+    # print plot from col temperatur city and temperature world
+    df = df.loc[:, [col_city_name_updated, col_world_name]]
+    plt.close("all")
+    plt.figure()
+    df.plot()
+    plt.show()
 
 
 def main():
@@ -70,7 +82,8 @@ def main():
     df = insert_delta_col(df, col_city_name_updated, col_world_name)
 
     wt_func.convert_to_html(df, 'html/index.html')
-    print(df)
+
+    df_to_plot(df, col_city_name_updated, col_world_name)
 
 
 if(__name__ == '__main__'):
