@@ -82,18 +82,6 @@ def insert_data(data):
 
 def main():
     print('active functions module')
-    # df = get_file('./data/wt_data.csv')
-
-    df = prep_index('./data/wt_data.csv', 'year')
-
-    city_name = df.iloc[0][0]
-    col_name_updated = f'temp_city {city_name }'
-
-    df = rename_col(df, 'temp_ciy', col_name_updated)
-
-    trim_df(df, 'year', 'city')
-
-    print(df)
 
 
 if(__name__ == '__main__'):
