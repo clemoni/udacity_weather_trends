@@ -4,6 +4,7 @@ First Project for the UDACITY Nano Degree Data Analyst
 ## Prerequisites
 This Project required the csv file of the average temperature for the world and picked city from 1750 to 2013. 
 
+[![Chat Line](https://github.com/clemoni/udacity_weather_trends/blob/main/img/chart_line_temp.png)](The chart Line)
 
 ## Programming for Data Science with Python
 For more details about the program [Programming for Data Science with Python](https://www.udacity.com/course/data-analyst-nanodegree--nd002)
