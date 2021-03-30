@@ -13,7 +13,7 @@ This Project requires the csv file of the average temperature for the world and 
 ![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_to_html.png)
 
 * Statistic values for each moving average temperature for Dublin in the Workd (dataFrame converted to to HTML) 
-![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_to_html.png)
+![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_sma_stat.png)
 
 ## Programming for Data Science with Python
 For more details about the program [Programming for Data Analyst Nano Degree](https://www.udacity.com/course/data-analyst-nanodegree--nd002)
