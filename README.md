@@ -5,8 +5,11 @@ First Project for the UDACITY Nano Degree Data Analyst
 This Project required the csv file of the average temperature for the world and picked city from 1750 to 2013. 
 
 ## Project at glance
+
+* the data Visualisation 
 ![Chart Line](https://github.com/clemoni/udacity_weather_trends/blob/main/img/chart_line_temp.png)
 
+* the dataFame converted to HTML
 ![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_to_html.png)
 
 ## Programming for Data Science with Python
