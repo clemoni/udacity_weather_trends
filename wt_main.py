@@ -57,6 +57,7 @@ def insert_delta_col(df, col_city_name_updated, col_world_name):
     # create and insert col delta with difference between temperature
     # city and temperature world
     df['delta'] = df[col_city_name_updated]-df[col_world_name]
+    print(df['delta'].describe())
     return df
 
 
