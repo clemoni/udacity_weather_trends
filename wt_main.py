@@ -65,6 +65,12 @@ def feed_index_data(index_list, data_list, index, data):
     data_list.append(data)
 
 
+def get_year_range(df, step):
+    year_min, year_max = (df.index.min(), df.index.max())
+    year_range_list = list(range(year_min, year_max, step))
+    return pd.Series(year_range_list)
+
+
 def describe_year_perdiod(df, year_period, col_name):
     # create list data and list inde
     # to be insert in dataFrmae
@@ -132,7 +138,7 @@ def main():
     df['delta'] = insert_delta_col(
         df, sma_city, sma_world)
 
-    # Devided year range between 3 time period
+    # Diveded year range between 3 time period
     # for each get statistic for the sma of city and world
     # and the delta
     year_period = [(1752, 1900), (1900, 1975), (1975, 2013)]
