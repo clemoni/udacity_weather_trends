@@ -13,7 +13,7 @@ This Project required the csv file of the average temperature for the world and 
 ![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_to_html.png)
 
 ## Programming for Data Science with Python
-For more details about the program [Programming for Data Science with Python](https://www.udacity.com/course/data-analyst-nanodegree--nd002)
+For more details about the program [Programming for Data Analyst Nano Degree](https://www.udacity.com/course/data-analyst-nanodegree--nd002)
 
 
 ## Acknowledgments
