@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Trends</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h2>Evolution temperature for Dublin</h2>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>count</th>
+          <th>mean</th>
+          <th>std</th>
+          <th>min</th>
+          <th>25%</th>
+          <th>50%</th>
+          <th>75%</th>
+          <th>max</th>
+        </tr>
+        <tr>
+          <th>SMA_20 Dublin</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1752-1900</th>
+          <td>149.0</td>
+          <td>8.470201</td>
+          <td>0.122190</td>
+          <td>8.22</td>
+          <td>8.37</td>
+          <td>8.46</td>
+          <td>8.58</td>
+          <td>8.70</td>
+        </tr>
+        <tr>
+          <th>1900-1975</th>
+          <td>76.0</td>
+          <td>8.776053</td>
+          <td>0.185667</td>
+          <td>8.44</td>
+          <td>8.62</td>
+          <td>8.81</td>
+          <td>8.96</td>
+          <td>9.06</td>
+        </tr>
+        <tr>
+          <th>1975-2013</th>
+          <td>39.0</td>
+          <td>9.079744</td>
+          <td>0.261186</td>
+          <td>8.77</td>
+          <td>8.88</td>
+          <td>8.95</td>
+          <td>9.26</td>
+          <td>9.54</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Evolution temperature for World</h2>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>count</th>
+          <th>mean</th>
+          <th>std</th>
+          <th>min</th>
+          <th>25%</th>
+          <th>50%</th>
+          <th>75%</th>
+          <th>max</th>
+        </tr>
+        <tr>
+          <th>SMA_20 World</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1752-1900</th>
+          <td>149.0</td>
+          <td>8.053758</td>
+          <td>0.183017</td>
+          <td>7.49</td>
+          <td>7.950</td>
+          <td>8.07</td>
+          <td>8.190</td>
+          <td>8.42</td>
+        </tr>
+        <tr>
+          <th>1900-1975</th>
+          <td>76.0</td>
+          <td>8.470395</td>
+          <td>0.196105</td>
+          <td>8.12</td>
+          <td>8.270</td>
+          <td>8.53</td>
+          <td>8.650</td>
+          <td>8.69</td>
+        </tr>
+        <tr>
+          <th>1975-2013</th>
+          <td>39.0</td>
+          <td>8.944872</td>
+          <td>0.257057</td>
+          <td>8.64</td>
+          <td>8.705</td>
+          <td>8.88</td>
+          <td>9.145</td>
+          <td>9.44</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Difference between Dublin and World temperature</h2>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>count</th>
+          <th>mean</th>
+          <th>std</th>
+          <th>min</th>
+          <th>25%</th>
+          <th>50%</th>
+          <th>75%</th>
+          <th>max</th>
+        </tr>
+        <tr>
+          <th>delta</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1752-1900</th>
+          <td>149.0</td>
+          <td>0.416443</td>
+          <td>0.151301</td>
+          <td>0.16</td>
+          <td>0.290</td>
+          <td>0.38</td>
+          <td>0.5400</td>
+          <td>0.75</td>
+        </tr>
+        <tr>
+          <th>1900-1975</th>
+          <td>76.0</td>
+          <td>0.305658</td>
+          <td>0.053100</td>
+          <td>0.17</td>
+          <td>0.270</td>
+          <td>0.31</td>
+          <td>0.3425</td>
+          <td>0.41</td>
+        </tr>
+        <tr>
+          <th>1975-2013</th>
+          <td>39.0</td>
+          <td>0.134872</td>
+          <td>0.063157</td>
+          <td>0.00</td>
+          <td>0.095</td>
+          <td>0.12</td>
+          <td>0.1850</td>
+          <td>0.26</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
