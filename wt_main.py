@@ -9,63 +9,79 @@ def prep_df():
     # get DF from csv file
     df = wt_func.get_file('./data/wt_data.csv')
     df = wt_func.set_index_col(df, 'year')
+
     # get the name of the city
-    city_name = df.iloc[0][1]
+    col_1_name = df.iloc[0][1]
+    col_2_name = 'World'
     # modified column 'temp_city' to add the city
-    col_name_updated = f'temp_city {city_name }'
+
     # modified the column in the DF
-    df = wt_func.rename_col(df, 'temp_ciy', col_name_updated)
+    df = wt_func.rename_col(df, 'temp_ciy', col_1_name)
+    df = wt_func.rename_col(df, 'temp_world', col_2_name)
     # remove column year, city not needed anymore
     wt_func.trim_df(df, 'year', 'city')
 
-    return (df, col_name_updated)
+    return (df, col_1_name, col_2_name)
 
 
-def group_moving_average(df, col_name_updated, col_world_name):
-
-    # Create list index, data, and column to be inserted at the end in new dataFrame
-    # each list be happened with value
-    index_list = list()
-    data_list = list()
-    columns_list = ['year_range', col_name_updated, col_world_name]
-
-    # get min data and max data to control loop
-    year_min, year_max = (df.index.min(), df.index.max())
-
-    # create list of decade date
-    decade_list = list(range(year_min, year_max, 10))
-
-    # for each date:
-    # - group row corresponding + 9 below to get mean()
-    # - extract: the mean for the city and wold
-    # - create data range for better understanding
-
-    [wt_func.insert_data(
-        wt_func.get_row_val(
-            df, i, year_max, col_name_updated, col_world_name),
-        index_list,
-        data_list)
-     for i in decade_list]
-
-    # create new dataFrame
-
-    return pd.DataFrame(
-        data=data_list, columns=columns_list, index=index_list)
+def get_sma_20(df, col_name):
+    return df[col_name].rolling(20, min_periods=1).mean()
 
 
-def insert_delta_col(df, col_city_name_updated, col_world_name):
+def insert_delta_col(df, col_name_1, col_name_2):
     # create and insert col delta with difference between temperature
     # city and temperature world
-    df['delta'] = df[col_city_name_updated]-df[col_world_name]
+    return df[col_name_1]-df[col_name_2]
+
+
+def get_year_range(df, step):
+    year_min, year_max = (df.index.min(), df.index.max())
+    year_range_list = list(range(year_min, year_max, step))
+    return pd.Series(year_range_list)
+
+
+def get_describe(df, col_name, year_1, year_2):
+    return df.loc[year_1:year_2, col_name].describe()
+
+
+def feed_index_data(index_list, data_list, index, data):
+    index_list.append(index)
+    data_list.append(data)
+
+
+def describe_year_perdiod(df, year_period, col_name):
+    data_list = list()
+    index_list = list()
+    for year_range in year_period:
+        s = get_describe(df, col_name, year_range[0], year_range[1])
+        feed_index_data(index_list, data_list,
+                        f'{year_range[0]}-{year_range[1]}', s.to_dict())
+
+    df = pd.DataFrame(data=data_list, index=index_list)
+    df.index.name = col_name
     return df
 
 
-def df_to_plot(df, col_city_name_updated, col_world_name):
-    # print plot from col temperatur city and temperature world
-    df = df.loc[:, [col_city_name_updated, col_world_name]]
+def df_to_plot(df, xaxis, title_plot, *cols):
+    cols_list = [col for col in cols]
     plt.close("all")
-    plt.figure()
-    df.plot()
+    # colors for the line plot
+    colors = ['blue', 'red']
+
+    df[cols_list].plot(
+        color=colors, figsize=(12, 4), use_index=True, grid=True, alpha=0.8)
+    plt.xticks(xaxis)
+
+    # modify ticks size
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.legend(labels=cols_list, fontsize=14)
+
+    # title and labels
+    plt.title(title_plot, fontsize=16)
+    plt.xlabel('Year', fontsize=14)
+    plt.ylabel('Temperature [°C]', fontsize=14)
+
     plt.show()
 
 
@@ -74,16 +90,24 @@ def main():
 
     prep_df()
 
-    df,  col_city_name_updated = prep_df()
-    col_world_name = 'temp_world'
+    df, city_name, world_name = prep_df()
+    sma_city = f'SMA_20 {city_name}'
+    sma_world = f'SMA_20 {world_name}'
+    df[sma_city] = round(get_sma_20(df, city_name), 2)
+    df[sma_world] = round(get_sma_20(df, world_name), 2)
+    df['delta'] = insert_delta_col(
+        df, sma_city, sma_world)
+    # print(df)
+    # print(df)
 
-    df = group_moving_average(df, col_city_name_updated, col_world_name)
+    year_period = [(1752, 1900), (1900, 1975), (1975, 2013)]
+    df_sma_city = describe_year_perdiod(df, year_period, sma_city)
+    df_sma_world = describe_year_perdiod(df, year_period, sma_world)
+    df_delta = describe_year_perdiod(df, year_period, 'delta')
 
-    df = insert_delta_col(df, col_city_name_updated, col_world_name)
-
-    wt_func.convert_to_html(df, 'html/index.html')
-
-    df_to_plot(df, col_city_name_updated, col_world_name)
+    # xaxis = get_year_range(df, 15)
+    # title_plot = f'Evolution temperature between {city_name} and {world_name}'
+    # df_to_plot(df, xaxis, title_plot, 'SMA_20 Dublin', 'SMA_20 World')
 
 
 if(__name__ == '__main__'):
