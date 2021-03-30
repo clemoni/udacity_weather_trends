@@ -2,7 +2,7 @@
 First Project for the UDACITY Nano Degree Data Analyst
 
 ## Prerequisites
-This Project requires the csv file of the average temperature for the world and picked city from 1750 to 2013. 
+This Project requires the csv file of the average temperature for the world and Dublin city from 1750 to 2013. 
 
 ## Project at glance
 
