@@ -9,7 +9,10 @@ This Project requires the csv file of the average temperature for the world and 
 * the data Visualisation 
 ![Chart Line](https://github.com/clemoni/udacity_weather_trends/blob/main/img/chart_line_temp.png)
 
-* the dataFame converted to HTML
+* Evolution of temperature between Dublin to Word (dataFrame converted to to HTML)
+![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_to_html.png)
+
+* Statistic values for each moving average temperature for Dublin in the Workd (dataFrame converted to to HTML) 
 ![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_to_html.png)
 
 ## Programming for Data Science with Python
