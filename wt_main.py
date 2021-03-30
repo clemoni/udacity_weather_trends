@@ -59,18 +59,6 @@ def get_describe(df, col_name, year_1, year_2):
     """
     return df.loc[year_1:year_2, col_name].describe()
 
-<<<<<<< HEAD
-def insert_delta_col(df, col_city_name_updated, col_world_name):
-    # create and insert col delta with difference between temperature
-    # city and temperature world
-    df['delta'] = df[col_city_name_updated]-df[col_world_name]
-    print(df['delta'].describe())
-||||||| merged common ancestors
-def insert_delta_col(df, col_city_name_updated, col_world_name):
-    # create and insert col delta with difference between temperature
-    # city and temperature world
-    df['delta'] = df[col_city_name_updated]-df[col_world_name]
-=======
 
 def feed_index_data(index_list, data_list, index, data):
     index_list.append(index)
@@ -101,7 +89,6 @@ def describe_year_perdiod(df, year_period, col_name):
     df.index.name = col_name
 
     # return new dataFrame
->>>>>>> lab
     return df
 
 
