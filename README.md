@@ -21,6 +21,7 @@ For more details about the program [Programming for Data Analyst Nano Degree](ht
 
 ## Acknowledgments
 Thanks to:
-* Corey Schafer, [Python Pandas Tutorial](https://youtu.be/ZyhVh-qRZPA) YouTuve
+* Corey Schafer, [Python Pandas Tutorial](https://youtu.be/ZyhVh-qRZPA) YouTube
 * Matt Harrison, Theodore Petrou (2020) Pandas 1.x Cookbook Packt Publishing
+* [Amanda Iglesias Moreno](https://www.linkedin.com/in/amanda-iglesias-moreno-55029417a/) for her article [Moving averages with Python](https://towardsdatascience.com/moving-averages-in-python-16170e20f6c)
 
