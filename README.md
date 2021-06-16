@@ -6,7 +6,7 @@ This Project requires the csv file of the average temperature for the World vs D
 
 ## Project at glance
 
-* the data Visualisation 
+* The data visualisation 
 ![Chart Line](https://github.com/clemoni/udacity_weather_trends/blob/main/img/chart_line_temp.png)
 
 * Evolution of temperature between Dublin and the World (dataFrame converted to to HTML)
