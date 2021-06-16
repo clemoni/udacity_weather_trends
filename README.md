@@ -2,17 +2,17 @@
 First Project for the UDACITY Nano Degree Data Analyst
 
 ## Prerequisites
-This Project requires the csv file of the average temperature for the world and Dublin city from 1750 to 2013. 
+This Project requires the csv file of the average temperature for the World vs Dublin city from 1750 to 2013. 
 
 ## Project at glance
 
 * the data Visualisation 
 ![Chart Line](https://github.com/clemoni/udacity_weather_trends/blob/main/img/chart_line_temp.png)
 
-* Evolution of temperature between Dublin to Word (dataFrame converted to to HTML)
+* Evolution of temperature between Dublin and the World (dataFrame converted to to HTML)
 ![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_to_html.png)
 
-* Statistic values for each moving average temperature for Dublin in the Workd (dataFrame converted to to HTML) 
+* Statistic values for each moving average temperature for Dublin and the World (dataFrame converted to to HTML) 
 ![dataFrame converted to HTML](https://github.com/clemoni/udacity_weather_trends/blob/main/img/dataFrame_sma_stat.png)
 
 ## Programming for Data Science with Python
